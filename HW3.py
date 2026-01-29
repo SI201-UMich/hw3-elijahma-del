@@ -25,7 +25,7 @@ class CouponDispenser:
 
     """
 
-    def __init__(self, coupon_cards, customer_roster, issued_indices):
+    def __init__(self, coupon_cards):
         """
         Initialize a new CouponDispenser object.
 
@@ -33,8 +33,8 @@ class CouponDispenser:
             coupon_cards (list[str]): list of possible coupons users can receive.
         """
         self.coupon_cards = coupon_cards
-        self.customer_roster = customer_roster
-        self.issued_indices = issued_indices
+        self.customer_roster = []
+        self.issued_indices = []
         # TODO: Implement per instructions
         pass
 
@@ -70,7 +70,7 @@ class CouponDispenser:
         """
         # TODO: Implement per instructions
         self.name = name
-        if len self.coupon_cards == 0:
+        if len(self.coupon_cards) == 0:
             return "The box is empty"
         
         if name in self.customer_roster:
@@ -106,7 +106,7 @@ class CouponDispenser:
             if i == "exit":
                 return "Goodbye!"
             elif i == "show":
-                if len(self.customer_roster = 0:
+                if len(self.customer_roster) == 0:
                        print("")
                 else:
                     for ix in range(len(self.customer_roster)):
@@ -116,10 +116,11 @@ class CouponDispenser:
                         print(f"{customer}: {coupon_text}")
             else:
                 names = i.split(",")
-                name = name.strip()
-                if name:
-                    coupon = self.issue_coupon (name)
-                    print(coupon)
+                for name in names:
+                    name = name.strip()
+                    if name:
+                        coupon = self.issue_coupon(name)
+                        print(coupon)
 
             pass
 
@@ -139,6 +140,7 @@ class CouponDispenser:
             None
         """
         # TODO: Implement per instructions
+
         pass
 
 
@@ -158,9 +160,8 @@ def main():
     ]
 
     # Uncomment the lines below as you implement each function.
-    # box = CouponDispenser(coupon_cards)
-    # box.distribute_session()
-    # box.tally_distribution()
+    box = CouponDispenser(coupon_cards)
+    box.distribute_session()
     pass
 
 
