@@ -25,7 +25,7 @@ class CouponDispenser:
 
     """
 
-    def __init__(self, coupon_cards):
+    def __init__(self, coupon_cards, customer_roster, issued_indices):
         """
         Initialize a new CouponDispenser object.
 
@@ -33,6 +33,8 @@ class CouponDispenser:
             coupon_cards (list[str]): list of possible coupons users can receive.
         """
         self.coupon_cards = coupon_cards
+        self.customer_roster = customer_roster
+        self.issued_indices = issued_indices
         # TODO: Implement per instructions
         pass
 
@@ -46,7 +48,7 @@ class CouponDispenser:
         """
         # TODO: Implement per instructions
         if len(self.coupon_cards) > 0:
-            return f"|{self.coupon_cards}|"
+            return "|".join(self.coupon_cards)
         else:
             return ""
 
@@ -67,6 +69,19 @@ class CouponDispenser:
             str: message as described above
         """
         # TODO: Implement per instructions
+        self.name = name
+        if len self.coupon_cards == 0:
+            return "The box is empty"
+        
+        if name in self.customer_roster:
+            pos = self.customer_roster.index(name)
+            coupon_index = self.issued_indices[pos]
+            return self.coupon_cards[coupon_index]
+        random_index = random.randint(0, len(self.coupon_cards) - 1)
+        self.customer_roster.append(name)
+        self.issued_indices.append(random_index)
+        return self.coupon_cards[random_index]
+
         pass
 
     def distribute_session(self):
