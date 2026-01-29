@@ -45,7 +45,11 @@ class CouponDispenser:
             str
         """
         # TODO: Implement per instructions
-        
+        if len(self.coupon_cards) > 0:
+            return f"|{self.coupon_cards}|"
+        else:
+            return ""
+
         pass
 
     def issue_coupon(self, name):
