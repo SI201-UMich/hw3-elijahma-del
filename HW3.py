@@ -100,7 +100,28 @@ class CouponDispenser:
         Reminder: Use lists only (no dictionaries).
         """
         # TODO: Implement per instructions 
-        pass
+        while True:
+        
+            i = input("Enter a customer name, show, or exit: ")
+            if i == "exit":
+                return "Goodbye!"
+            elif i == "show":
+                if len(self.customer_roster = 0:
+                       print("")
+                else:
+                    for ix in range(len(self.customer_roster)):
+                        customer = self.customer_roster[id]
+                        coupon_index = self.issued_indicies[id]
+                        coupon_text = self.coupon_cards[coupon_index]
+                        print(f"{customer}: {coupon_text}")
+            else:
+                names = i.split(",")
+                name = name.strip()
+                if name:
+                    coupon = self.issue_coupon (name)
+                    print(coupon)
+
+            pass
 
     def tally_distribution(self):
         """
